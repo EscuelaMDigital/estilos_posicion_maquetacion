@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS · Posición y Maquetación</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+            <h1>Estilos de posición y maquetación</h1>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- ============================================================
+             MODELO DE CAJA
+        ============================================================ -->
+        <section id="caja" class="seccion">
+            <h2 class="seccion-titulo">Modelo de Caja</h2>
+
+            <div class="bloque">
+                <h3 class="bloque-titulo">Anatomía de una caja</h3>
+
+                <p class="bloque-texto">
+                    Toda caja tiene: <strong>content</strong> → <strong>padding</strong> → <strong>border</strong> →
+                    <strong>margin</strong> aunque no lo veamos. Ejemplo:
+                </p>
+
+                <div class="caja-ejemplo">
+                    <p>CONTENIDO</p>
+                    <p>Aquí va el texto</p>
+                </div>
+
+                <p class="bloque-texto">
+                    Como se descomponen esas partes en esta caja:
+                </p>
+
+                <div class="card caja">
+                    <div class="caja-margin">
+                        <div class="caja-border">
+                            <div class="caja-padding">
+                                <div class="caja-content">
+                                    <strong>CONTENIDO</strong>
+                                    <p>Aquí va el texto</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="caja-leyenda">
+                        <span><span class="leyenda-margin">■</span> margin</span>
+                        <span><span class="leyenda-border">■</span> border</span>
+                        <span><span class="leyenda-padding">■</span> padding</span>
+                        <span><span class="leyenda-content">■</span> contenido</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ============================================================
+             OVERFLOW
+        ============================================================ -->
+        <section id="overflow" class="seccion">
+            <h2 class="seccion-titulo">Propiedad Overflow</h2>
+
+            <div class="bloque">
+
+                <div class="card">
+                    <span class="tag-propiedad">overflow: visible</span>
+
+                    <div class="overflow-box visible">
+                        <p class="overflow-text">Este contenido es demasiado largo y se desborda</p>
+                    </div>
+
+                    <p class="nota">El contenido se desborda</p>
+                </div>
+
+                <div class="card">
+                    <span class="tag-propiedad">overflow: hidden</span>
+
+                    <div class="overflow-box hidden">
+                        <p class="overflow-text">Este contenido es demasiado largo y se corta</p>
+                    </div>
+
+                    <p class="nota">El contenido se corta</p>
+                </div>
+
+                <div class="card">
+                    <span class="tag-propiedad">overflow: scroll</span>
+
+                    <div class="overflow-box scroll">
+                        <p class="overflow-text">Este contenido es demasiado largo y tiene scroll</p>
+                    </div>
+
+                    <p class="nota">Aparecen barras de scroll</p>
+                </div>
+
+                <div class="card">
+                    <span class="tag-propiedad">overflow: auto</span>
+
+                    <div class="overflow-box auto">
+                        <p class="overflow-text">
+                            Este contenido es demasiado largo y tiene scroll solo si es necesario
+                        </p>
+                    </div>
+
+                    <p class="nota">Scroll automático</p>
+                </div>
+
+                <h3 class="bloque-titulo">overflow-x y overflow-y</h3>
+
+                <p class="bloque-texto">
+                    Controlan el desbordamiento horizontal y vertical por separado.
+                </p>
+
+                <div class="card">
+                    <span class="tag-propiedad" style="background: #e67e22;">overflow-x: scroll</span>
+
+                    <div class="overflow-x">
+                        <span class="overflow-item">Item 1</span>
+                        <span class="overflow-item">Item 2</span>
+                        <span class="overflow-item">Item 3</span>
+                        <span class="overflow-item">Item 4</span>
+                        <span class="overflow-item">Item 5</span>
+                        <span class="overflow-item">Item 6</span>
+                        <span class="overflow-item">Item 7</span>
+                    </div>
+
+                    <p class="nota">Scroll horizontal</p>
+                </div>
+
+                <div class="card">
+                    <span class="tag-propiedad" style="background: #e67e22;">overflow-y: scroll</span>
+
+                    <div class="overflow-y">
+                        <p>Línea 1</p>
+                        <p>Línea 2</p>
+                        <p>Línea 3</p>
+                        <p>Línea 4</p>
+                        <p>Línea 5</p>
+                        <p>Línea 6</p>
+                        <p>Línea 7</p>
+                        <p>Línea 8</p>
+                        <p>Línea 9</p>
+                        <p>Línea 10</p>
+                    </div>
+
+                    <p class="nota">Scroll vertical</p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ============================================================
+             LÍMITES INTELIGENTES
+        ============================================================ -->
+        <section id="limites" class="seccion">
+            <h2 class="seccion-titulo">Límites Inteligentes</h2>
+
+            <div class="bloque">
+                <h3 class="bloque-titulo">min-width, max-width, min-height, max-height</h3>
+
+                <p class="bloque-texto">
+                    Controlan el tamaño mínimo y máximo de una caja.
+                </p>
+
+                <div class="card">
+                    <span class="tag-propiedad">max-width: 250px</span>
+
+                    <div class="limite-max-width">
+                        <p>Esta caja no crece más de 250px</p>
+                        <p>Redimensiona la ventana para ver el efecto</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <span class="tag-propiedad">min-height: 100px</span>
+
+                    <div class="limite-min-height">
+                        <p>Siempre tendrá al menos 100px de alto</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <span class="tag-propiedad">max-height: 80px</span>
+
+                    <div class="limite-max-height">
+                        <p>Este contenido es más largo que 80px y se desborda</p>
+                        <p>Pero podemos controlarlo con overflow</p>
+                        <p>
+                            Así según necesitemos aparecerá un scroll u otro cuando el contenido desborda
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ============================================================
+             BOX-SIZING
+        ============================================================ -->
+        <section id="box-sizing" class="seccion">
+            <h2 class="seccion-titulo">Medidas Perfectas: box-sizing</h2>
+
+            <div class="bloque">
+                <h3 class="bloque-titulo">content-box vs border-box</h3>
+
+                <p class="bloque-texto">
+                    Con <code>border-box</code>, el padding y borde se incluyen en el ancho total.
+                </p>
+
+                <div class="card">
+                    <span class="tag-propiedad">content-box</span>
+
+                    <div class="box-sizing content-box">
+                        <p>Ancho: 200px</p>
+                        <p>Padding: 20px</p>
+                        <p>Border: 6px</p>
+                        <p class="box-sizing-resultado">Ancho real: 252px</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <span class="tag-propiedad">border-box</span>
+
+                    <div class="box-sizing border-box">
+                        <p>Ancho: 200px</p>
+                        <p>Padding: 20px</p>
+                        <p>Border: 6px</p>
+                        <p class="box-sizing-resultado">Ancho real: 200px</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ============================================================
+             DISPLAY
+        ============================================================ -->
+        <section id="display" class="seccion">
+            <h2 class="seccion-titulo">El flujo normal y la propiedad display</h2>
+
+            <div class="bloque">
+                <h3 class="bloque-titulo">block, inline, inline-block</h3>
+
+                <p class="bloque-texto">
+                    Cambia el comportamiento de las cajas en el flujo.
+                </p>
+
+                <div class="card">
+                    <span class="tag-propiedad">display: block</span>
+
+                    <div class="display-block">
+                        <div class="block-item">Elemento 1</div>
+                        <div class="block-item">Elemento 2</div>
+                        <div class="block-item">Elemento 3</div>
+                    </div>
+
+                    <p class="nota">Ocupan todo el ancho y saltan de línea</p>
+                </div>
+
+                <div class="card">
+                    <span class="tag-propiedad">display: inline</span>
+
+                    <div class="display-inline">
+                        <span class="inline-item">Uno</span>
+                        <span class="inline-item">Dos</span>
+                        <span class="inline-item">Tres</span>
+                        <span class="inline-item">Cuatro</span>
+                    </div>
+
+                    <p class="nota">Se colocan en línea, no aceptan width/height</p>
+                </div>
+
+                <div class="card">
+                    <span class="tag-propiedad">display: inline-block</span>
+
+                    <div class="display-inline-block">
+                        <div class="inline-block-item">80px</div>
+                        <div class="inline-block-item">200px</div>
+                        <div class="inline-block-item">120px</div>
+                    </div>
+
+                    <p class="nota">
+                        Se alinean en línea pero aceptan ancho y alto
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ============================================================
+             NONE vs HIDDEN
+        ============================================================ -->
+        <section id="visibilidad" class="seccion">
+            <h2 class="seccion-titulo">El Arte de Desaparecer: none vs hidden</h2>
+
+            <div class="bloque">
+                <h3 class="bloque-titulo">display: none vs visibility: hidden</h3>
+
+                <p class="bloque-texto">
+                    <code>display: none</code> elimina el espacio;
+                    <code>visibility: hidden</code> lo oculta pero reserva el espacio.
+                </p>
+
+                <div class="card">
+                    <span class="tag-propiedad">display: none</span>
+
+                    <div class="visibilidad">
+                        <div class="visibilidad-item">Elemento visible</div>
+                        <div class="visibilidad-item oculto-none">OCULTO (none)</div>
+                        <div class="visibilidad-item">Elemento visible</div>
+                    </div>
+
+                    <p class="nota">
+                        El elemento oculto <strong>no ocupa espacio</strong>
+                    </p>
+                </div>
+
+                <div class="card">
+                    <span class="tag-propiedad">visibility: hidden</span>
+
+                    <div class="visibilidad">
+                        <div class="visibilidad-item">Elemento visible</div>
+                        <div class="visibilidad-item oculto-hidden">OCULTO (hidden)</div>
+                        <div class="visibilidad-item">Elemento visible</div>
+                    </div>
+
+                    <p class="nota">
+                        El elemento oculto <strong>sí ocupa espacio</strong> (invisible)
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ============================================================
+             POSITION
+        ============================================================ -->
+        <section id="position" class="seccion">
+            <h2 class="seccion-titulo">Posicionamiento: position</h2>
+
+            <div class="bloque">
+                <h3 class="bloque-titulo">static, relative, absolute, fixed, sticky</h3>
+
+                <p class="bloque-texto">
+                    Controlan cómo se coloca una caja en el flujo.
+                </p>
+
+                <div class="card">
+                    <span class="tag-propiedad">relative</span>
+
+                    <div class="position-relative-contenedor">
+                        <div class="position-box relative-box">
+                            <p>Me muevo 20px abajo y 30px derecha</p>
+                        </div>
+
+                        <p class="nota">El espacio original se mantiene</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <span class="tag-propiedad">absolute</span>
+
+                    <div class="position-relative-contenedor">
+                        <div class="position-box absolute-box">
+                            <p>Esquina superior derecha</p>
+                        </div>
+
+                        <p class="nota">
+                            Se posiciona respecto al contenedor relativo
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <span class="tag-propiedad">fixed</span>
+
+                    <div class="position-fixed">
+                        <div class="position-box fixed-box">
+                            <p>Fijo</p>
+                            <p>No se mueve al hacer scroll</p>
+                        </div>
+
+                        <p class="nota">
+                            Siempre visible en la esquina inferior derecha
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <span class="tag-propiedad">sticky</span>
+
+                    <div class="position-sticky">
+                        <div class="sticky-contenido-antes">
+                            <p>Contenido antes del sticky</p>
+                            <p>Haz scroll aquí para ver el efecto</p>
+                        </div>
+
+                        <div class="position-box sticky-box">
+                            <p>STICKY</p>
+                            <p>Este elemento se mantiene fijo al hacer scroll</p>
+                        </div>
+
+                        <div class="sticky-contenido-despues">
+                            <p>Contenido después del sticky</p>
+                            <p>Línea 1</p>
+                            <p>Línea 2</p>
+                            <p>Línea 3</p>
+                            <p>Línea 4</p>
+                            <p>Línea 5</p>
+                            <p>Línea 6</p>
+                            <p>Línea 7</p>
+                            <p>Línea 8</p>
+                            <p>Línea 9</p>
+                            <p>Línea 10</p>
+                            <p>Línea 11</p>
+                            <p>Línea 12</p>
+                            <p>Línea 13</p>
+                            <p>Línea 14</p>
+                            <p>Línea 15</p>
+                        </div>
+                    </div>
+
+                    <p class="nota">
+                        Se comporta como relative hasta que hace scroll
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ============================================================
+             FLOAT y CLEAR
+        ============================================================ -->
+        <section id="float" class="seccion">
+            <h2 class="seccion-titulo">Propiedades float y clear</h2>
+
+            <div class="bloque">
+                <h3 class="bloque-titulo">Float y Clearfix</h3>
+
+                <p class="bloque-texto">
+                    <code>float</code> saca un elemento del flujo normal y lo coloca a la izquierda o derecha.
+                    <code>clearfix</code> es una técnica para contener elementos flotados.
+                </p>
+
+                <div class="card">
+                    <span class="tag-propiedad">float: left</span>
+
+                    <div class="float-container">
+                        <div class="float-columna izquierda">Columna Izquierda 50%</div>
+                        <div class="float-columna derecha">Columna Derecha 50%</div>
+                        <div class="float-columna derecha-sola">Columna Derecha sola 60%</div>
+                    </div>
+
+                    <p class="nota">Dos columnas con float: left</p>
+                </div>
+
+                <div class="card">
+                    <span class="tag-propiedad">clear: both</span>
+
+                    <div class="float-container-clear">
+                        <div class="float-item">Float 1</div>
+                        <div class="float-item">Float 2</div>
+                        <div class="float-item">Float 3</div>
+
+                        <div class="clear-both">
+                            clear: both
+                        </div>
+                    </div>
+
+                    <p class="nota">
+                        <code>clear: both</code> hace que este elemento se coloque
+                        después de los elementos flotados.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <span class="tag-propiedad">Sin clearfix</span>
+
+                    <div class="float-container-problema">
+                        <div class="float-item-problema">Float 1</div>
+                        <div class="float-item-problema">Float 2</div>
+                        <div class="float-item-problema">Float 3</div>
+                    </div>
+
+                    <p class="nota nota-clear-both">
+                        Sin <code>clearfix</code>, el contenedor no tiene en cuenta
+                        la altura de los floats y puede quedar colapsado.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <span class="tag-propiedad">clearfix</span>
+
+                    <div class="float-container clearfix">
+                        <div class="float-item">Float 1</div>
+                        <div class="float-item">Float 2</div>
+                        <div class="float-item">Float 3</div>
+                    </div>
+
+                    <p class="nota">
+                        El <code>clearfix</code> permite que el contenedor
+                        tenga en cuenta la altura de sus elementos flotados.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>CSS · Posición y Maquetación · 2026</p>
+    </footer>
+
+</body>
+
+</html>
